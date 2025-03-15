@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Faris Kakish</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #EDEDED;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1E1E1E;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        section {
+            background-color: #2c3d50;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        section h2 {
+            font-size: 28px;
+            color: #3498DB;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #BDC3C7;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2C3E50;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #5D6D7E;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .tab:hover {
+            background-color: #2980B9; 
+        }
+
+        .tab.active {
+            background-color: #2980B9; 
+        }
+
+        .job-content {
+            display: none;
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        .job-content.active {
+            display: block;
+        }
+
+        footer {
+            background-color: #1E1E1E;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            section h2 {
+                font-size: 24px;
+            }
+
+            section p {
+                font-size: 16px;
+            }
+
+            .tabs {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            .tab {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Faris Kakish</h1>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:Fariskakish2007@gmail.com">Fariskakish2007@gmail.com</a></p>
+            <p>Phone Number: <a href="tel:+61490705339">0490-705-339</a></p>
+            <p>Address: Unit 9/87 Benowa Lodge 4, Heeb Street Ashmore 4214 
+                <a href="https://www.google.com/maps?q=Unit+9/87+Benowa+Lodge+4,+Heeb+Street+Ashmore+4214" class="contact-button" target="_blank">View on Map</a>
+            </p>
+        </header>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>About Me</h2>
+            <p>My name is Faris Kakish, I’m an 18-year-old student looking to complement my theoretical studies with practical experience in the industry. My career aspirations in data science and cybersecurity align with my passion for software engineering, and I am eager to apply my knowledge and skills in a real-world setting. I am known for my strong work ethic, reliability, and positive attitude, and I strive to foster a collaborative and productive work environment.</p>
+        </section>
+
+        <section>
+            <h2>Past Work</h2>
+
+            <div class="tabs">
+                <div class="tab" onclick="showJob(0)">Subway</div>
+                <div class="tab" onclick="showJob(1)">OfficeWorks</div>
+                <div class="tab" onclick="showJob(2)">EMF Nerang</div>
+                <div class="tab" onclick="showJob(3)">McDonald's</div>
+            </div>
+
+            <div id="job0" class="job-content">
+                <h3>Crew Member at Subway</h3>
+                <p><strong>Duration:</strong> 01/09/2024 - 06/03/2025</p>
+                <p>Involved in admin work, including writing training manuals for new hires, conducting training, and supporting day-to-day operations.</p>
+            </div>
+
+            <div id="job1" class="job-content">
+                <h3>Tech Sales at OfficeWorks Pimpama</h3>
+                <p><strong>Duration:</strong> 09/11/2023 - 14/06/2024</p>
+                <p>Assisted with stocktake, packaging orders, training new employees, and supporting the tech sales and print/copy sections.</p>
+            </div>
+
+            <div id="job2" class="job-content">
+                <h3>Cafe Shift Manager at EMF Nerang</h3>
+                <p><strong>Duration:</strong> 29/10/2022 - 08/10/2023</p>
+                <p>Supported rostering, admin work, staff training, and ensured smooth day-to-day operations.</p>
+            </div>
+
+            <div id="job3" class="job-content">
+                <h3>Crew Member at McDonald's Benowa</h3>
+                <p><strong>Duration:</strong> 16/07/2021 - 10/05/2022</p>
+                <p>Handled customer service, food preparation, inventory management, and cleanliness tasks.</p>
+            </div>
+
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <p><strong>Currently studying Software Engineering and Data Science</strong></p>
+            <p>Griffith University, 2025 - current</p>
+
+            <p><strong>Cert 2 in Sampling and Measurements</strong></p>
+            <p>Benowa State High School, 2023</p>
+
+            <p><strong>Cert 3 in Laboratory Studies</strong></p>
+            <p>Benowa State High School, 2023</p>
+
+            <p><strong>Diploma in Sport Coaching/Esports</strong></p>
+            <p>GESS Education, 2024</p>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Responsive Web Design</li>
+                <li>Version Control (Git)</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Faris Kakish</p>
+    </footer>
+
+    <script>
+        function showJob(index) {
+            const tabs = document.querySelectorAll('.tab');
+            const jobContents = document.querySelectorAll('.job-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            jobContents.forEach(content => content.classList.remove('active'));
+
+            tabs[index].classList.add('active');
+            jobContents[index].classList.add('active');
+        }
+    </script>
+</body>
+</html>
