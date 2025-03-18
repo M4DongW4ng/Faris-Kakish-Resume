@@ -167,11 +167,11 @@
             <h2>Experience</h2>
 
             <div class="tabs">
-                <div class="tab" onclick="showJob(0)">McDonald's</div>
-                <div class="tab" onclick="showJob(1)">EMF Nerang</div>
+                <div class="tab" onclick="showJob(0)">Griffith university</div>
+                <div class="tab" onclick="showJob(1)">Subway</div>
                 <div class="tab" onclick="showJob(2)">OfficeWorks</div>
-                <div class="tab" onclick="showJob(3)">Subway</div>
-                <div class="tab" onclick="showJob(4)">Griffith University</div>
+                <div class="tab" onclick="showJob(3)">EMF Nerang</div>
+                <div class="tab" onclick="showJob(4)">McDonald's</div>
             </div>
             
             <div id="job4" class="job-content">
@@ -258,6 +258,10 @@
             tabs[index].classList.add('active');
             jobContents[index].classList.add('active');
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showJob(0);
+        });
     </script>
 </body>
 </html>
