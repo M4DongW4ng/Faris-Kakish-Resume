@@ -18,6 +18,7 @@
             color: #fff;
             padding: 30px;
             text-align: center;
+            position: relative;
         }
 
         header h1 {
@@ -115,6 +116,18 @@
             font-size: 16px;
         }
 
+        .profile-image {
+            position: absolute;
+            top: 50%;
+            left: 350px;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 3px solid #3498DB; /* Add border property */
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 28px;
@@ -140,20 +153,26 @@
             .tab {
                 margin-bottom: 10px;
             }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+                left: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
+        <img src="C:/Users/Faris/OneDrive/Desktop/Profile.jpeg" class="profile-image" alt="Profile Image">
         <h1>Faris Kakish</h1>
         <div class="contact-info">
-            <p><a href="mailto:Fariskakish2007@gmail.com">Fariskakish2007@gmail.com</a></p>
+            <p>Email: <a href="mailto:Fariskakish2007@gmail.com">Fariskakish2007@gmail.com</a></p>
             <p>Phone Number: <a href="tel:+61490705339">0490-705-339</a></p>
             <p>Address: Unit 9/87 Benowa Lodge 4, Heeb Street Ashmore 4214 
                 <a href="https://www.google.com/maps?q=Unit+9/87+Benowa+Lodge+4,+Heeb+Street+Ashmore+4214" class="contact-button" target="_blank">View on Map</a></p>
             <p>Linkedin: 
                 <a href="https://www.linkedin.com/in/faris-kakish-5590872a9/"class="contact-button" target="_blank">View Page</a></p>
-        </header>
         </div>
     </header>
 
@@ -255,8 +274,10 @@
             tabs.forEach(tab => tab.classList.remove('active'));
             jobContents.forEach(content => content.classList.remove('active'));
 
-            tabs[index].classList.add('active');
-            jobContents[index].classList.add('active');
+            if (index >= 0) {
+                tabs[index].classList.add('active');
+                jobContents[index].classList.add('active');
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
