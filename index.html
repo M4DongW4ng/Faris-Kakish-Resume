@@ -1,293 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Faris Kakish</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #121212;
-            color: #EDEDED;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume | Faris Kakish</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #0d1117;
+      color: #EDEDED;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
 
-        header {
-            background-color: #1E1E1E;
-            color: #fff;
-            padding: 30px;
-            text-align: center;
-            position: relative;
-        }
+    header {
+      background: linear-gradient(135deg, #1E1E1E, #2980B9);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
+    header h1 {
+      margin: 10px 0 5px;
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
 
-        header p {
-            margin: 5px 0;
-            font-size: 18px;
-        }
+    header p {
+      margin: 3px 0;
+      font-size: 18px;
+      opacity: 0.85;
+    }
 
-        .contact-info p {
-            font-size: 18px;
-            margin: 5px 0;
-        }
+    .profile-image {
+      position: absolute;
+      top: 50%;
+      left: 60px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 0 15px rgba(41,128,185,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .contact-info a {
-            color: #fff;
-            text-decoration: none;
-        }
+    .profile-image:hover {
+      transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 0 25px rgba(41,128,185,0.9);
+    }
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 30px;
-        }
+    .contact-info p a {
+      color: #fff;  /* now white */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-        section {
-            background-color: #2c3d50;
-            margin-bottom: 30px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
+    .contact-info p a:hover {
+      color: #F1C40F; /* gold on hover */
+    }
 
-        section h2 {
-            font-size: 28px;
-            color: #3498DB;
-            margin-bottom: 20px;
-        }
+    .container {
+      width: 85%;
+      margin: 30px auto;
+    }
 
-        section p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #BDC3C7;
-        }
+    section {
+      background-color: #161b22;
+      margin-bottom: 30px;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
 
-        .tabs {
-            display: flex;
-            justify-content: space-around;
-            background-color: #2C3E50;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #5D6D7E;
-            color: #fff;
-            text-align: center;
-            border-radius: 8px;
-        }
+    section h2 {
+      font-size: 26px;
+      color: #3498DB;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #3498DB;
+      padding-bottom: 6px;
+      display: inline-block;
+    }
 
-        .tab:hover {
-            background-color: #2980B9; 
-        }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
 
-        .tab.active {
-            background-color: #2980B9; 
-        }
+    .tab {
+      padding: 10px 18px;
+      cursor: pointer;
+      background: #2C3E50;
+      color: #fff;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
 
-        .job-content {
-            display: none;
-            background-color: #1E1E1E;
-            padding: 20px;
-            border-radius: 8px;
-            color: #fff;
-        }
+    .tab:hover {
+      background: #3498DB;
+      transform: translateY(-3px);
+    }
 
-        .job-content.active {
-            display: block;
-        }
+    .tab.active {
+      background: #2980B9;
+      font-weight: bold;
+    }
 
-        footer {
-            background-color: #1E1E1E;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
+    .job-content {
+      display: none;
+      background: #1E1E1E;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
 
-        footer p {
-            margin: 0;
-            font-size: 16px;
-        }
+    .job-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
 
-        .profile-image {
-            position: absolute;
-            top: 50%;
-            left: 350px;
-            transform: translateY(-50%);
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border: 3px solid #3498DB;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 28px;
-            }
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-            .container {
-                width: 90%;
-            }
+    ul li {
+      background: #2980B9;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 15px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
 
-            section h2 {
-                font-size: 24px;
-            }
+    ul li:hover {
+      transform: scale(1.05);
+      background: #1abc9c;
+    }
 
-            section p {
-                font-size: 16px;
-            }
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 30px;
+    }
 
-            .tabs {
-                flex-direction: column;
-                margin-top: 10px;
-            }
-
-            .tab {
-                margin-bottom: 10px;
-            }
-
-            .profile-image {
-                width: 100px;
-                height: 100px;
-                left: 10px;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      header h1 { font-size: 30px; }
+      .profile-image {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+        margin: 0 auto 20px;
+        display: block;
+      }
+      .container { width: 95%; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="https://raw.githubusercontent.com/M4DongW4ng/Faris-Kakish-Resume/refs/heads/main/pictures/Profile.jpeg" class="profile-image" alt="Profile Image">
-        <h1>Faris Kakish</h1>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:Fariskakish2007@gmail.com">Fariskakish2007@gmail.com</a></p>
-            <p>Phone Number: <a href="tel:+61490705339">0490-705-339</a></p>
-            <p>Address: <a href="https://www.google.com/maps?q=Unit+9/87+Benowa+Lodge+4,+Heeb+Street+Ashmore+4214">Unit 9/87 Benowa Lodge 4, Heeb Street Ashmore 4214</a></p>
-            <p><a href="https://www.linkedin.com/in/faris-kakish-5590872a9/">LinkedIn Profile</a></p>
-        </div>
-    </header>
-
-    <div class="container">
-        <section>
-            <h2>About Me</h2>
-            <p>My name is Faris Kakish, I’m an 18-year-old student looking to complement my theoretical studies with practical experience in the industry. My career aspirations in data science and cybersecurity align with my passion for software engineering, and I am eager to apply my knowledge and skills in a real-world setting. I am known for my strong work ethic, reliability, and positive attitude, and I strive to foster a collaborative and productive work environment.</p>
-        </section>
-
-        <section>
-            <h2>Past Work</h2>
-
-            <div class="tabs">
-                <div class="tab" onclick="showJob(0)">McDonald's</div>
-                <div class="tab" onclick="showJob(1)">EMF Nerang</div>
-                <div class="tab" onclick="showJob(2)">OfficeWorks</div>
-                <div class="tab" onclick="showJob(3)">MadHouseIT</div>
-                <div class="tab" onclick="showJob(4)">Subway</div>
-                <div class="tab" onclick="showJob(5)">Griffith University</div>
-            </div>
-
-            <div id="job0" class="job-content">
-                <h3>Crew Member at McDonald's Benowa</h3>
-                <p><strong>Duration:</strong> 16/07/2021 - 10/05/2022</p>
-                <p>Handled customer service, food preparation, inventory management, and cleanliness tasks.</p>
-            </div>
-
-            <div id="job2" class="job-content">
-                <h3>Tech Sales at OfficeWorks Pimpama</h3>
-                <p><strong>Duration:</strong> 09/11/2023 - 14/06/2024</p>
-                <p>Assisted with stocktake, packaging orders, training new employees, and supporting the tech sales and print/copy sections.</p>
-            </div>
-
-            <div id="job1" class="job-content">
-                <h3>Cafe Shift Manager at EMF Nerang</h3>
-                <p><strong>Duration:</strong> 29/10/2022 - 08/10/2023</p>
-                <p>Supported rostering, admin work, staff training, and ensured smooth day-to-day operations.</p>
-            </div>
-            
-            <div id="job3" class="job-content">
-                <h3>System Administrator</h3>
-                <p><strong>Duration:</strong> 05/08/2022- 20/07/2025</p>
-                <p>Responsible for the maintenance, configuration, and overall management of computer servers</p>
-            </div>
-            
-            <div id="job4" class="job-content">
-                <h3>Level 2 IT Help Desk, NewGenSubs</h3>
-                <p><strong>Duration:</strong> 01/09/2024 - 06/03/2025</p>
-                <p>Involved in admin work, creating/ updating and troubleshooting programs and devices, including writing training manuals for new hires, conducting training, and supporting day-to-day operations.</p>
-            </div>
-
-            <div id="job5" class="job-content">
-                <h3>Student Outreach mentor Griffith university</h3>
-                <p><strong>Duration:</strong> 01/18/2025 - Current</p>
-                <p>Support underrepresented students by promoting tertiary pathways, delivering workshops, mentoring, and facilitating their transition into university life.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Education</h2>
-            <p><strong>Currently studying Software Engineering and Data Science</strong></p>
-            <p>Griffith University, 2025 - current</p>
-
-            <p><strong>Cert 2 in Sampling and Measurements</strong></p>
-            <p>Benowa State High School, 2023</p>
-
-            <p><strong>Cert 3 in Laboratory Studies</strong></p>
-            <p>Benowa State High School, 2023</p>
-
-            <p><strong>Diploma in Sport Coaching/Esports</strong></p>
-            <p>GESS Education, 2024</p>
-
-        </section>
-
-        <section>
-        <h2>Extracurricular Activities</h2>
-            <p><strong>Corporal rank at AAFC 221</strong></p>
-            <p>Drill instructor, and Field/Survival skills and basic Aviation Instuctor</p>
-            <p>Learnt leadership and management skills, Education and preparing materials for teaching</p>
-            <p>AAFC, 2021-2023</p>
-        </section>
-    
-        <section>
-            <h2>Skills</h2>
-            <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>Responsive Web Design</li>
-                <li>Version Control (Git)</li>
-                <li>Kali experience</li>
-                <li>Python desktop app development</li>
-                <li>Leadership skills</li>
-                <li>MYOB and Xero experience</li>
-            </ul>
-        </section>
+  <header>
+    <img src="https://raw.githubusercontent.com/M4DongW4ng/Faris-Kakish-Resume/refs/heads/main/pictures/Profile.jpeg" class="profile-image" alt="Profile Image">
+    <h1>Faris Kakish</h1>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:Fariskakish2007@gmail.com">Fariskakish2007@gmail.com</a></p>
+      <p>Phone: <a href="tel:+61490705339">0490-705-339</a></p>
+      <p>Address: <a href="https://www.google.com/maps?q=Benowa+Lodge+Four,+Unit+9/87,+Heeb+St,+Ashmore+QLD+4214" target="_blank">Benowa Lodge Four, Unit 9/87, Heeb St, Ashmore QLD 4214</a></p>
+      <p><a href="https://www.linkedin.com/in/faris-kakish-5590872a9/">LinkedIn</a></p>
     </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2025 Faris Kakish</p>
-    </footer>
+  <div class="container">
+    <section>
+      <h2>About Me</h2>
+      <p>My name is Faris Kakish, I’m an 18-year-old student looking to complement my theoretical studies with practical experience in the industry. My career aspirations in data science and cybersecurity align with my passion for software engineering, and I am eager to apply my knowledge and skills in a real-world setting. I am known for my strong work ethic, reliability, and positive attitude, and I strive to foster a collaborative and productive work environment.</p>
+    </section>
 
-    <script>
-        function showJob(index) {
-            const tabs = document.querySelectorAll('.tab');
-            const jobContents = document.querySelectorAll('.job-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            jobContents.forEach(content => content.classList.remove('active'));
+    <section>
+      <h2>Past Work</h2>
+      <div class="tabs">
+        <div class="tab" onclick="showJob(0)">McDonald's</div>
+        <div class="tab" onclick="showJob(1)">EMF Nerang</div>
+        <div class="tab" onclick="showJob(2)">OfficeWorks</div>
+        <div class="tab" onclick="showJob(3)">MadHouseIT</div>
+        <div class="tab" onclick="showJob(4)">Subway</div>
+        <div class="tab" onclick="showJob(5)">Griffith University</div>
+      </div>
+      <div id="job0" class="job-content">
+        <h3>Crew Member - McDonald's Benowa</h3>
+        <p><strong>16/07/2021 - 10/05/2022</strong></p>
+        <p>Handled customer service, food preparation, inventory management, and cleanliness tasks.</p>
+      </div>
+      <div id="job1" class="job-content">
+        <h3>Cafe Shift Manager - EMF Nerang</h3>
+        <p><strong>29/10/2022 - 08/10/2023</strong></p>
+        <p>Supported rostering, admin work, staff training, and ensured smooth day-to-day operations.</p>
+      </div>
+      <div id="job2" class="job-content">
+        <h3>Tech Sales - OfficeWorks Pimpama</h3>
+        <p><strong>09/11/2023 - 14/06/2024</strong></p>
+        <p>Assisted with stocktake, packaging orders, training new employees, and supporting the tech sales and print/copy sections.</p>
+      </div>
+      <div id="job3" class="job-content">
+        <h3>System Administrator - MadHouseIT</h3>
+        <p><strong>05/08/2022 - 20/07/2025</strong></p>
+        <p>Responsible for the maintenance, configuration, and overall management of computer servers.</p>
+      </div>
+      <div id="job4" class="job-content">
+        <h3>Level 2 IT Help Desk - NewGenSubs</h3>
+        <p><strong>01/09/2024 - 06/03/2025</strong></p>
+        <p>Created and updated training manuals, conducted training sessions, and resolved technical issues across programs and devices.</p>
+      </div>
+      <div id="job5" class="job-content">
+        <h3>Student Outreach Mentor - Griffith University</h3>
+        <p><strong>01/18/2025 - Current</strong></p>
+        <p>Support underrepresented students by promoting tertiary pathways, delivering workshops, mentoring, and facilitating their transition into university life.</p>
+      </div>
+    </section>
 
-            if (index >= 0) {
-                tabs[index].classList.add('active');
-                jobContents[index].classList.add('active');
-            }
+    <section>
+      <h2>Education</h2>
+      <p><strong>Currently studying Software Engineering & Data Science</strong> - Griffith University, 2025 - present</p>
+      <p><strong>Cert II in Sampling & Measurements</strong> - Benowa SHS, 2023</p>
+      <p><strong>Cert III in Laboratory Studies</strong> - Benowa SHS, 2023</p>
+      <p><strong>Diploma in Sport Coaching/Esports</strong> - GESS Education, 2024</p>
+    </section>
+
+    <section>
+      <h2>Extracurricular Activities</h2>
+      <p><strong>Corporal Rank - AAFC 221</strong> (2021-2023)</p>
+      <p>Drill instructor, survival and aviation instructor, gained leadership, management, and teaching skills.</p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Responsive Web Design</li>
+        <li>Git & Version Control</li>
+        <li>Kali Linux</li>
+        <li>Python Desktop Apps</li>
+        <li>Leadership</li>
+        <li>MYOB & Xero</li>
+        <li>Hardware Maintanence</li>
+        <li>Re-imaging devices</li>
+        <li>Network Management</li>
+        <li>Asset management</li>
+        <li>Trouble Shooting</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Faris Kakish</p>
+  </footer>
+
+  <script>
+    function showJob(index) {
+      const tabs = document.querySelectorAll('.tab');
+      const jobContents = document.querySelectorAll('.job-content');
+
+      if (tabs[index].classList.contains('active')) {
+        tabs[index].classList.remove('active');
+        jobContents[index].classList.remove('active');
+        return;
+      }
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      jobContents.forEach(content => content.classList.remove('active'));
+
+      if (index >= 0) {
+        tabs[index].classList.add('active');
+        jobContents[index].classList.add('active');
+      }
+    }
+
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          section.classList.add('visible');
         }
+      });
+    });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            showJob(-1);
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+      showJob(-1);
+    });
+  </script>
 </body>
 </html>
-
